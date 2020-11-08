@@ -26,3 +26,7 @@ o the role of each file;
 o the packages required to run your code (e.g. numpy, scipy, etc.).
 The recommend format for README file is markdown (.md). .txt is acceptable
 too.
+
+## Results
+
+- After running the code in the main.py file, a results folder will be generated for to provide a single location to review the analysis of each task
