@@ -1,5 +1,6 @@
 # Import dependancies for main file.
-import click # Library to compose CLI functionality.
+import os
+import pandas as pd
 
 # Import class defintions for each task.
 from A1 import a1
@@ -7,20 +8,46 @@ from A2 import a2
 from B1 import b1
 from B2 import b2
 
+# Setup Directories
+base_dir = "Datasets/"
+a1_dir = "A1/"
+a2_dir = "A2/"
+b1_dir = "B1/"
+b2_dir = "B2/"
+celeba_dir = os.path.join(base_dir,'celeba/')
+celeba_test_dir = os.path.join(base_dir,'celeba_test/')
+cartoon_set_dir = os.path.join(base_dir,'cartoon_set/')
+cartoon_set_test_dir = os.path.join(base_dir,'cartoon_set_test/')
+celeba_img_dir = os.path.join(celeba_dir,'img')
+celeba_labels_dir = os.path.join(celeba_dir,'labels.csv')
+celeba_test_img_dir = os.path.join(celeba_test_dir,'img')
+cartoon_set_img_dir = os.path.join(cartoon_set_dir,'img')
+cartoon_set_test_img_dir = os.path.join(cartoon_set_test_dir,'img')
+
+# Setup DataFrames
+celeba_df = pd.read_csv(celeba_labels_dir, sep="\t", dtype=str)
+
+
 # ======================================================================================================================
 # Task A1
 print('\n~~~~~ Task A1 ~~~~~\n')
 # Data preprocessing
-a1_data_train, a1_data_val, a1_data_test = a1.prepare() # TODO: Data preparation step for A1.
+print('\n> Generating A1 Datasets\n')
+gender_train_gen, gender_val_gen, gender_test_gen = a1.prepare(a1_dir, celeba_img_dir, celeba_df) # TODO: Data preparation step for A1.
 ## model_A1 = A1(args...) # TODO: Build model object.
+print('\n> Building A1 Model\n')
 model_A1 = a1.A1()
+print('\n> Training A1 Model\n')
 # Train model based on the training set (you should fine-tune your model based on validation set.)
 ## acc_A1_train = model_A1.train(args...)  # TODO: Train model based on the train set.
 a1_train_params = {}
 acc_A1_train = model_A1.train(a1_train_params)
+print('\n> Testing A1 Model\n')
 ## acc_A1_test = model_A1.test(args...)  # TODO: Test model based on the test set.
 a1_test_params = {}
 acc_A1_test = model_A1.test(a1_test_params)
+print('\n> Cleaning Up A1\n')
+a1.cleanup(a1_dir)
 print('Clean up memory/GPU etc...')  # TODO: Some code to free memory if necessary.
 
 

@@ -1,2 +1,6 @@
 Datasets/*
 */__pycache__/
+*/test/*
+*/train/*
+.dev
+.results

@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "amls_20-21_sn15043735"
+version = "0.1.0"
+description = ""
+authors = ["Samir Azzouz <zceesaz@ucl.ac.uk>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+tensorflow = "^2.3.1"
+scikit-image = "^0.17.2"
+opencv-python = "^4.4.0"
+imutils = "^0.5.3"
+matplotlib = "^3.3.3"
+tqdm = "^4.53.0"
+pandas = "^1.1.4"
+scipy = "^1.5.4"
+click = "^7.1.2"
+scikit-learn = "^0.23.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
