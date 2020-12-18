@@ -1,6 +1,11 @@
 Datasets/*
-*/__pycache__/
+dataset_AMLS_20-21_test/*
+dev_Datasets/*
+*/__pycache__/*
 */test/*
 */train/*
+*/logs/*
+*/results/*
+*/saved_models/*
 .dev
 .results

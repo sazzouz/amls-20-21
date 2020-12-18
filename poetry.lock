@@ -53,6 +53,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "cmake"
+version = "3.18.4.post1"
+description = "CMake is an open-source, cross-platform family of tools designed to build, test and package software"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "cycler"
 version = "0.10.0"
 description = "Composable style cycles"
@@ -70,6 +78,14 @@ description = "Decorators for Humans"
 category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+
+[[package]]
+name = "dlib"
+version = "19.21.1"
+description = "A toolkit for making real world machine learning and data analysis applications"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "gast"
@@ -339,6 +355,20 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "prettytable"
+version = "2.0.0"
+description = "A simple Python library for easily displaying tabular data in a visually appealing ASCII table format"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+wcwidth = "*"
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
+
+[[package]]
 name = "protobuf"
 version = "3.14.0"
 description = "Protocol Buffers"
@@ -367,6 +397,17 @@ python-versions = "*"
 
 [package.dependencies]
 pyasn1 = ">=0.4.6,<0.5.0"
+
+[[package]]
+name = "pydot"
+version = "1.4.1"
+description = "Python interface to Graphviz's Dot"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+pyparsing = ">=2.1.4"
 
 [[package]]
 name = "pyparsing"
@@ -502,6 +543,17 @@ python-versions = ">=3.6"
 numpy = ">=1.14.5"
 
 [[package]]
+name = "silence-tensorflow"
+version = "1.1.1"
+description = "Simple python package to shut up Tensorflow warnings and logs."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+test = ["pytest-cov", "coveralls", "validate-version-code", "pytest", "codacy-coverage"]
+
+[[package]]
 name = "six"
 version = "1.15.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -626,6 +678,14 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "wcwidth"
+version = "0.2.5"
+description = "Measures the displayed width of unicode strings in a terminal"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "werkzeug"
 version = "1.0.1"
 description = "The comprehensive WSGI web application library."
@@ -648,7 +708,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "03c597e614c4ed64ed8f523c3d77a0c810d81875510b83f20a0dab4cdcb206c3"
+content-hash = "011b01b6a07339bf5c30d49d19fa81dfaa01258766686bdf9f3ba5f017aaf268"
 
 [metadata.files]
 absl-py = [
@@ -675,6 +735,20 @@ click = [
     {file = "click-7.1.2-py2.py3-none-any.whl", hash = "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"},
     {file = "click-7.1.2.tar.gz", hash = "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"},
 ]
+cmake = [
+    {file = "cmake-3.18.4.post1-py2-none-macosx_10_6_x86_64.whl", hash = "sha256:10c46b0fd2c087b0cae611d1e734f065a1a8169d0b54ec834a9dff005c1857ca"},
+    {file = "cmake-3.18.4.post1-py2-none-manylinux1_i686.whl", hash = "sha256:65cd763dd232973a0deedf1f349e229fa3bf1357e0e2576da65ad118ff53b070"},
+    {file = "cmake-3.18.4.post1-py2-none-manylinux1_x86_64.whl", hash = "sha256:1c900642859c5970d81ae8821ae05a2af93d2630cd1c0f2bffc80e7abdbc087d"},
+    {file = "cmake-3.18.4.post1-py2-none-win32.whl", hash = "sha256:605c2a07c9ebf332319106bffb11941463d18e586902e3659c315cae9f0caaeb"},
+    {file = "cmake-3.18.4.post1-py2-none-win_amd64.whl", hash = "sha256:c1b14b302d3def2672968cd675031793e193382d0e4a00e2121af4b333d62ece"},
+    {file = "cmake-3.18.4.post1-py3-none-macosx_10_6_x86_64.whl", hash = "sha256:6dd3abb1afdd9a986a55977ef85a0d245ebf289cc704b687f061294c48c126ec"},
+    {file = "cmake-3.18.4.post1-py3-none-manylinux1_i686.whl", hash = "sha256:1c86369700f74363ee46de64e4167ac2d292a7c7f1606e372b8dcaf3108d0cc7"},
+    {file = "cmake-3.18.4.post1-py3-none-manylinux1_x86_64.whl", hash = "sha256:34f7ee67cef21b178a793fe760c979608d4ac66a1697cae6b382dbcc5d1ec485"},
+    {file = "cmake-3.18.4.post1-py3-none-manylinux2014_aarch64.whl", hash = "sha256:e8ef8dab578e8ca85724b8506f230a5a5017ead67cb9da60fe1240fc9ab24135"},
+    {file = "cmake-3.18.4.post1-py3-none-win32.whl", hash = "sha256:5096f5d4541b5d0040bae9dbc364bb1c8cd9211e273c481baf9a1a3635be1d00"},
+    {file = "cmake-3.18.4.post1-py3-none-win_amd64.whl", hash = "sha256:ac062ac13591e4acbb6e919e5b1196a3b04f8d1022eb3ab4dbd20779ade9d5ab"},
+    {file = "cmake-3.18.4.post1.tar.gz", hash = "sha256:d7981ac85f1abb75c24eb14936d56dafbd327e7ba371d91007e38704af7b52b5"},
+]
 cycler = [
     {file = "cycler-0.10.0-py2.py3-none-any.whl", hash = "sha256:1d8a5ae1ff6c5cf9b93e8811e581232ad8920aeec647c37316ceac982b08cb2d"},
     {file = "cycler-0.10.0.tar.gz", hash = "sha256:cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"},
@@ -682,6 +756,9 @@ cycler = [
 decorator = [
     {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
     {file = "decorator-4.4.2.tar.gz", hash = "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"},
+]
+dlib = [
+    {file = "dlib-19.21.1.tar.gz", hash = "sha256:6c461e1e9e03d35a569163a41500381806a449bb34a06f18700bd7658aed8c8d"},
 ]
 gast = [
     {file = "gast-0.3.3-py2.py3-none-any.whl", hash = "sha256:8f46f5be57ae6889a4e16e2ca113b1703ef17f2b0abceb83793eaba9e1351a45"},
@@ -975,6 +1052,10 @@ pillow = [
     {file = "Pillow-8.0.1-pp37-pypy37_pp73-win32.whl", hash = "sha256:8de332053707c80963b589b22f8e0229f1be1f3ca862a932c1bcd48dafb18dd8"},
     {file = "Pillow-8.0.1.tar.gz", hash = "sha256:11c5c6e9b02c9dac08af04f093eb5a2f84857df70a7d4a6a6ad461aca803fb9e"},
 ]
+prettytable = [
+    {file = "prettytable-2.0.0-py3-none-any.whl", hash = "sha256:5dc7fcaca227f48deacd86958ae9d7b8c31a186fcb354bbb066763f20adf3eb9"},
+    {file = "prettytable-2.0.0.tar.gz", hash = "sha256:e37acd91976fe6119172771520e58d1742c8479703489321dc1d9c85e7259922"},
+]
 protobuf = [
     {file = "protobuf-3.14.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:629b03fd3caae7f815b0c66b41273f6b1900a579e2ccb41ef4493a4f5fb84f3a"},
     {file = "protobuf-3.14.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:5b7a637212cc9b2bcf85dd828b1178d19efdf74dbfe1ddf8cd1b8e01fdaaa7f5"},
@@ -1024,6 +1105,10 @@ pyasn1-modules = [
     {file = "pyasn1_modules-0.2.8-py3.5.egg", hash = "sha256:426edb7a5e8879f1ec54a1864f16b882c2837bfd06eee62f2c982315ee2473ed"},
     {file = "pyasn1_modules-0.2.8-py3.6.egg", hash = "sha256:cbac4bc38d117f2a49aeedec4407d23e8866ea4ac27ff2cf7fb3e5b570df19e0"},
     {file = "pyasn1_modules-0.2.8-py3.7.egg", hash = "sha256:c29a5e5cc7a3f05926aff34e097e84f8589cd790ce0ed41b67aed6857b26aafd"},
+]
+pydot = [
+    {file = "pydot-1.4.1-py2.py3-none-any.whl", hash = "sha256:67be714300c78fda5fd52f79ec994039e3f76f074948c67b5ff539b433ad354f"},
+    {file = "pydot-1.4.1.tar.gz", hash = "sha256:d49c9d4dd1913beec2a997f831543c8cbd53e535b1a739e921642fe416235f01"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
@@ -1136,6 +1221,9 @@ scipy = [
     {file = "scipy-1.5.4-cp39-cp39-win_amd64.whl", hash = "sha256:cc1f78ebc982cd0602c9a7615d878396bec94908db67d4ecddca864d049112f2"},
     {file = "scipy-1.5.4.tar.gz", hash = "sha256:4a453d5e5689de62e5d38edf40af3f17560bfd63c9c5bd228c18c1f99afa155b"},
 ]
+silence-tensorflow = [
+    {file = "silence_tensorflow-1.1.1.tar.gz", hash = "sha256:e06bd7c8c8f1394eb19c29107dbab164a366a23b3f69d46ee0be6d2eace6e7bd"},
+]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
@@ -1181,6 +1269,10 @@ tqdm = [
 urllib3 = [
     {file = "urllib3-1.26.2-py2.py3-none-any.whl", hash = "sha256:d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473"},
     {file = "urllib3-1.26.2.tar.gz", hash = "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"},
+]
+wcwidth = [
+    {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
+    {file = "wcwidth-0.2.5.tar.gz", hash = "sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"},
 ]
 werkzeug = [
     {file = "Werkzeug-1.0.1-py2.py3-none-any.whl", hash = "sha256:2de2a5db0baeae7b2d2664949077c2ac63fbd16d98da0ff71837f7d1dea3fd43"},
