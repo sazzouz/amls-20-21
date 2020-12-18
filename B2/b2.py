@@ -72,11 +72,11 @@ class B2:
             binary_task=False,
             multi_task=True,
         )
-        # best_model = tune(b2_dir, "cnn_tuning", cnn, train_data, val_data)
-        # best_model.save(
-        #     os.path.join(b2_dir, "saved_models", "cnn_best_model_tuned.h5"),
-        #     overwrite=True,
-        # )
+        best_model = tune(b2_dir, "cnn_tuning", cnn, train_data, val_data)
+        best_model.save(
+            os.path.join(b2_dir, "saved_models", "cnn_best_model_tuned.h5"),
+            overwrite=True,
+        )
         best_model_tuned = load_model(os.path.join(b2_dir, "saved_models", "cnn_best_model_tuned.h5"))
         history, best_model_trained = train(
             best_model_tuned, train_data, val_data, get_callbacks(b2_dir, 'B2', 'cnn_tuned')
@@ -104,11 +104,11 @@ class B2:
         mobilenet = HyperMobileNet(
             num_classes=6, input_shape=(224, 224, 3), binary_task=False, multi_task=True
         )
-        # best_model = tune(b2_dir, "mobilenet_tuning", mobilenet, train_data, val_data)
-        # best_model.save(
-        #     os.path.join(b2_dir, "saved_models", "mobilenet_best_model_tuned.h5"),
-        #     overwrite=True,
-        # )
+        best_model = tune(b2_dir, "mobilenet_tuning", mobilenet, train_data, val_data)
+        best_model.save(
+            os.path.join(b2_dir, "saved_models", "mobilenet_best_model_tuned.h5"),
+            overwrite=True,
+        )
         best_model_tuned = load_model(
             os.path.join(b2_dir, "saved_models", "mobilenet_best_model_tuned.h5")
         )
@@ -138,17 +138,17 @@ class B2:
         mobilenetv2 = HyperMobileNetV2(
             num_classes=6, input_shape=(224, 224, 3), binary_task=False, multi_task=True
         )
-        # best_model = tune(
-        #     b2_dir,
-        #     "mobilenetv2_tuning",
-        #     mobilenetv2,
-        #     train_data,
-        #     val_data,
-        # )
-        # best_model.save(
-        #     os.path.join(b2_dir, "saved_models", "mobilenetv2_best_model_tuned.h5"),
-        #     overwrite=True,
-        # )
+        best_model = tune(
+            b2_dir,
+            "mobilenetv2_tuning",
+            mobilenetv2,
+            train_data,
+            val_data,
+        )
+        best_model.save(
+            os.path.join(b2_dir, "saved_models", "mobilenetv2_best_model_tuned.h5"),
+            overwrite=True,
+        )
         best_model_tuned = load_model(
             os.path.join(b2_dir, "saved_models", "mobilenetv2_best_model_tuned.h5")
         )
@@ -178,13 +178,13 @@ class B2:
         nasnetmobile = HyperNASNetMobile(
             num_classes=6, input_shape=(224, 224, 3), binary_task=False, multi_task=True
         )
-        # best_model = tune(
-        #     b2_dir, "nasnetmobile_tuning", nasnetmobile, train_data, val_data
-        # )
-        # best_model.save(
-        #     os.path.join(b2_dir, "saved_models", "nasnetmobile_best_model_tuned.h5"),
-        #     overwrite=True,
-        # )
+        best_model = tune(
+            b2_dir, "nasnetmobile_tuning", nasnetmobile, train_data, val_data
+        )
+        best_model.save(
+            os.path.join(b2_dir, "saved_models", "nasnetmobile_best_model_tuned.h5"),
+            overwrite=True,
+        )
         best_model_tuned = load_model(
             os.path.join(b2_dir, "saved_models", "nasnetmobile_best_model_tuned.h5")
         )

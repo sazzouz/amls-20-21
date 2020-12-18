@@ -59,52 +59,22 @@ def process_data(a1_dir, celeba_img_dir, gender_df, usage, feature, class_mapper
             for index, im in current_gender.iterrows():
                 im_path = os.path.join(celeba_img_dir, im["img_name"])
                 img = cv2.imread(im_path)
-                # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                # face_cascade = cv2.CascadeClassifier(
-                #     os.path.join(a1_dir, "haarcascade_face.xml")
-                # )
-                # get_face = face_cascade.detectMultiScale(img)
-                # if list(get_face):
-                #     locs = []
-                #     for (x, y, w, h) in get_face:
-                #         locs.append(img[y : y + h, x : x + w])
-                #     cv2.imwrite(
-                #         os.path.join(current_gender_output_path, im["img_name"]),
-                #         locs[0],
-                #     )
                 dets = detector(img, 1)
                 if len(dets) > 0:
                     for k, d in enumerate(dets):
-                        # print(
-                        #     "Detection {}: Left: {} Top: {} Right: {} Bottom: {}".format(
-                        #         k, d.left(), d.top(), d.right(), d.bottom()
-                        #     )
-                        # )
-                        # Get the landmarks/parts for the face in box d.
                         shape = predictor(img, d)
-                        # The next lines of code just get the coordinates for the mouth
-                        # and crop the mouth from the image.This part can probably be optimised
-                        # by taking only the outer most points.
                         xmouthpoints = [shape.part(x).x for x in range(1, 67)]
                         ymouthpoints = [shape.part(x).y for x in range(1, 67)]
                         maxx = max(xmouthpoints)
                         minx = min(xmouthpoints)
                         maxy = max(ymouthpoints)
                         miny = min(ymouthpoints)
-
-                        # to show the mouth properly pad both sides
                         pad = 0
-                        # basename gets the name of the file with it's extension
-                        # splitext splits the extension and the filename
-                        # This does not consider the condition when there are multiple faces in each image.
-                        # if there are then it just overwrites each image and show only the last image.
-                        # filename = os.path.splitext(os.path.basename(f))[0]
 
                         crop_image = img[
                             miny - pad : maxy + pad, minx - pad : maxx + pad
                         ]
-                        # The mouth images are saved in the format 'mouth1.jpg, mouth2.jpg,..
-                        # Change the folder if you want to. They are stored in the current directory
+
                         cv2.imwrite(
                             os.path.join(current_gender_output_path, im["img_name"]),
                             crop_image,

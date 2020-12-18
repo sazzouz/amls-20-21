@@ -8,10 +8,10 @@ def tune(
     model,
     train_data,
     val_data,
-    max_epochs=1,
-    executions_per_trial=1,
-    hyperband_iterations=1,
-    search_epochs=1,
+    max_epochs=10,
+    executions_per_trial=3,
+    hyperband_iterations=2,
+    search_epochs=8,
     verbose=1,
     seed=66,
 ):
@@ -40,12 +40,10 @@ def tune(
     return best_model
 
 
-def train(model, train_data, val_data, callbacks, train_epochs=2):
+def train(model, train_data, val_data, callbacks, train_epochs=10):
     print("\nTraining\n")
     steps_per_epoch = train_data.samples // train_data.batch_size
-    steps_per_epoch = 1
     validation_steps = val_data.samples // val_data.batch_size
-    validation_steps = 1
     history = model.fit(
         train_data,
         epochs=train_epochs,

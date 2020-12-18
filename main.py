@@ -40,11 +40,10 @@ cartoon_set_test_img_dir = os.path.join(cartoon_set_test_dir, "img/")
 celeba_df = pd.read_csv(celeba_labels_dir, sep="\t", dtype=str)
 cartoon_set_df = pd.read_csv(cartoon_set_labels_dir, sep="\t", dtype=str)
 
-# Setup shared arguments TODO: Convert this to a CLI extraction parsing arguments from click of argparse
-is_tuned = False
-is_trained = False
+print("\n~~~~~ Setup ~~~~~\n")
 
-epochs = 1
+
+epochs = 10
 history_dict = {}
 results_dict = {}
 results_table = PrettyTable()
@@ -58,7 +57,6 @@ results_table.field_names = [
 ]
 
 
-print("\n~~~~~ Setup ~~~~~\n")
 
 
 # ======================================================================================================================
@@ -292,7 +290,7 @@ results_dict["b2"] = {}
 b2 = b2.B2()
 # Data preprocessing for task B2
 print("\n> Generating B2 Datasets\n")
-# b2.prepare(b2_dir, cartoon_set_img_dir, cartoon_set_df)
+b2.prepare(b2_dir, cartoon_set_img_dir, cartoon_set_df)
 print("\n>>> B2 CNN \n")
 history_dict["b2"]["cnn"] = {}
 results_dict["b2"]["cnn"] = {}

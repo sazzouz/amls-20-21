@@ -74,7 +74,6 @@ def process_data(
             for index, im in current_eye_color.iterrows():
                 im_path = os.path.join(cartoon_set_img_dir, im["file_name"])
                 img = cv2.imread(im_path)
-                # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                 get_eyes = eye_classifier.detectMultiScale(img)
                 if list(get_eyes):
                     # Apply crop
@@ -127,57 +126,3 @@ def process_data(
     )
     return valid, invalid
 
-
-# def get_img_array(cartoon_set_img_dir):
-#     img_array = []
-#     img_dir = glob.glob(os.path.join(cartoon_set_img_dir, "*.png"))
-#     for img_file in img_dir:
-#         img = cv2.imread(img_file)
-#         img_array.append(img)
-#     return img_array
-
-
-# def gen_data(cartoon_set_img_dir, b2_dir):
-#     train_imgen = ImageDataGenerator(
-#         validation_split=0.25,
-#         rescale=1.0 / 255,
-#         width_shift_range=[-0.10, 0.10],
-#         height_shift_range=[-0.10, 0.10],
-#         horizontal_flip=True,
-#         rotation_range=10,
-#         zoom_range=[0.90, 1.10],
-#     )
-#     # print("Fitting Train ImageGenerator")
-#     test_imgen = ImageDataGenerator(rescale=1.0 / 255)
-#     # print("Fitting Test ImageGenerator")
-#     eye_color_train_flow = train_imgen.flow_from_directory(
-#         os.path.join(b2_dir, "train"),
-#         color_mode="rgb",
-#         class_mode="categorical",
-#         # Should be (218, 178)
-#         target_size=get_target_size(cartoon_set_img_dir),
-#         batch_size=32,
-#         shuffle=True,
-#         seed=66,
-#         subset="training",
-#     )
-#     eye_color_val_flow = train_imgen.flow_from_directory(
-#         os.path.join(b2_dir, "train"),
-#         color_mode="rgb",
-#         class_mode="categorical",
-#         target_size=get_target_size(cartoon_set_img_dir),
-#         batch_size=32,
-#         shuffle=True,
-#         seed=66,
-#         subset="validation",
-#     )
-#     eye_color_test_flow = test_imgen.flow_from_directory(
-#         os.path.join(b2_dir, "test"),
-#         color_mode="rgb",
-#         class_mode="categorical",
-#         target_size=get_target_size(cartoon_set_img_dir),
-#         batch_size=32,
-#         shuffle=True,
-#         seed=66,
-#     )
-#     return eye_color_train_flow, eye_color_val_flow, eye_color_test_flow
