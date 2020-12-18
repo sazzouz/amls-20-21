@@ -3,30 +3,15 @@
 ### Samir Azzouz
 
 ### zceesaz@ucl.ac.uk (secondary email for this GitHub account)
+Please email me if any issues occur setting up this project
 
 ### SN: 15043735
 
 ---
-
 ## Project structure
 
-## Tasks
+This project is organised for the four tasks. Each subfolder contains a task orchestration file, i.e. 'a1.py' followed by a local 'preparation.py' file to prepare the data for this task.
 
-- Task directories include a README file to provide additional rational alongside ocmmented code.
+There is also a 'common' folder found in the root of the project to provide modules used in each task.
 
-## Dataset preprocessing
-
-- Datasets directory includes a README to provide myself and the viewer additional descriptions of the provided data to introduce rational of pre-processing steps (alongside commented code).
-
-## Spec
-
-The README file should contain:
-o a brief description of the organization of your project;
-o the role of each file;
-o the packages required to run your code (e.g. numpy, scipy, etc.).
-The recommend format for README file is markdown (.md). .txt is acceptable
-too.
-
-## Results
-
-- After running the code in the main.py file, a results folder will be generated for to provide a single location to review the analysis of each task
+The progression through each task is handled in 'main.py' where results are tracked and information is provided in the terminal throughout the program
