@@ -1,7 +1,9 @@
 # UCL ELEC0134 AMLS 20/21
 
-### Samir Azzouz
+### Changed made after deadline
 
+As shown in the commit history, changes have been made right after the deadline. These changes were simply immediate resolutions to the mistaken addition to the .gitignore file of important sudirectories found in each task folder, namely the 'results/
+, 'logs/' and 'saved_models/' directories. This had to be resolved otherwise the program will error when these directories are not found. Due to the unforeseen file size of dependencies such as the 68point landmark detector, these changes were delayed as GitHub limits the rate and upload size. I hope this can be understood. Thanks.
 ### zceesaz@ucl.ac.uk (secondary email for this GitHub account)
 Please email me if any issues occur setting up this project
 
