@@ -4,8 +4,5 @@ dev_Datasets/*
 */__pycache__/*
 */test/*
 */train/*
-*/logs/*
-*/results/*
-*/saved_models/*
 .dev
 .results
