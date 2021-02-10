@@ -2,7 +2,6 @@
 
 ### SN: 15043735
 
----
 ## Project structure
 
 This project is organised for the four tasks. Each subfolder contains a task orchestration file, i.e. 'a1.py' followed by a local 'preparation.py' file to prepare the data for this task.
