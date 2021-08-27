@@ -49,18 +49,18 @@ def get_callbacks(dir, task_name, model_name):
     return callbacks
 
 
-def cleanup(a1_dir):
+def cleanup(dir):
     print("\n>>> Clearing Keras Session\n")
     clear_session()
-    # print("\n>>> Removing Temporary Train/Test Image Directories\n")
-    # for folder in ["train", "test"]:
-    #     if os.path.exists(os.path.join(a1_dir, folder)) and os.path.isdir(
-    #         os.path.join(a1_dir, folder)
-    #     ):
-    #         try:
-    #             shutil.rmtree(os.path.join(a1_dir, folder))
-    #         except OSError:
-    #             print("Failed To Remove Directory %s" % folder)
+    print("\n>>> Removing Temporary Train/Test Image Directories\n")
+    for folder in ["train", "test"]:
+        if os.path.exists(os.path.join(dir, folder)) and os.path.isdir(
+            os.path.join(dir, folder)
+        ):
+            try:
+                shutil.rmtree(os.path.join(dir, folder))
+            except OSError:
+                print("Failed To Remove Directory %s" % folder)
 
 def cast_to_list(x):
     if isinstance(x, list):

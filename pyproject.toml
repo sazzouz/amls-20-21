@@ -2,7 +2,7 @@
 name = "amls_20-21_sn15043735"
 version = "0.1.0"
 description = ""
-authors = ["Samir Azzouz <zceesaz@ucl.ac.uk>"]
+authors = ["Samir Azzouz <s.azzouz97@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

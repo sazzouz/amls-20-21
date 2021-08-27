@@ -16,8 +16,9 @@ from B2 import b2
 # Import utils
 from common.utils import cleanup
 
-# Setup Directories
+print("\n~~~~~ Setup ~~~~~\n")
 
+# Setup directory refrerencing
 base_dir = "Datasets/"
 a1_dir = "A1/"
 a2_dir = "A2/"
@@ -36,16 +37,16 @@ cartoon_set_labels_dir = os.path.join(cartoon_set_dir, "labels.csv")
 cartoon_set_test_labels_dir = os.path.join(cartoon_set_test_dir, "labels.csv")
 cartoon_set_test_img_dir = os.path.join(cartoon_set_test_dir, "img/")
 
-# Setup shared parameters
+# Instantiate shared dataset references
 celeba_df = pd.read_csv(celeba_labels_dir, sep="\t", dtype=str)
 cartoon_set_df = pd.read_csv(cartoon_set_labels_dir, sep="\t", dtype=str)
 
-print("\n~~~~~ Setup ~~~~~\n")
-
-
+# Instantiate configuration params
 epochs = 10
 history_dict = {}
 results_dict = {}
+
+# Specify results table headings for use with PrettyTable package
 results_table = PrettyTable()
 results_table.field_names = [
     "Task",
@@ -56,12 +57,10 @@ results_table.field_names = [
     "NASNetMobile",
 ]
 
-
-
-
 # ======================================================================================================================
 # Task A1
 print("\n~~~~~ Task A1 ~~~~~\n")
+# Add new keys for this task
 history_dict["a1"] = {}
 results_dict["a1"] = {}
 # Instantiate A1 task class
