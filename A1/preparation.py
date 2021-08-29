@@ -82,8 +82,10 @@ def process_data(a1_dir, celeba_img_dir, gender_df, usage, feature, class_mapper
                 else:
                     gender_df_faceless.loc[index, "faceless"] = True
                 pbar.update(1)
+    # Isolate images which have no detectable region of interest, proceed with 'valid' images
     valid = gender_df_faceless[gender_df_faceless.faceless != True]
     invalid = gender_df_faceless[gender_df_faceless.faceless == True]
+    # Determine proportion of valid images
     perc_valid = str(valid.shape[0] * 100 / gender_df.shape[0]) + "%"
     print(perc_valid + " " + "of the dataset provided have detectable faces.")
     perc_reduction = (

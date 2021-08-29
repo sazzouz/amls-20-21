@@ -1,4 +1,5 @@
 import os
+import PIL
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications.mobilenet import (
@@ -168,3 +169,15 @@ def get_img_data_from_directory(
         shuffle=True,
     )
     return train_flow, val_flow, test_flow
+
+def get_target_size(img_dir):
+    image = PIL.Image.open(img_dir + os.listdir(img_dir)[0])
+    targe_size = image.size
+    return targe_size
+
+
+def get_input_shape(img_dir, channels=3):
+    image = PIL.Image.open(img_dir + os.listdir(img_dir)[0])
+    height, width = image.size
+    input_shape = (width, height, channels)
+    return input_shape

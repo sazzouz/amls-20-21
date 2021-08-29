@@ -13,20 +13,6 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import cv2
 
-
-# def get_target_size(cartoon_set_img_dir):
-#     image = PIL.Image.open(cartoon_set_img_dir + os.listdir(cartoon_set_img_dir)[0])
-#     targe_size = image.size
-#     return targe_size
-
-
-# def get_input_shape(cartoon_set_img_dir, channels=3):
-#     image = PIL.Image.open(cartoon_set_img_dir + os.listdir(cartoon_set_img_dir)[0])
-#     height, width = image.size
-#     input_shape = (width, height, channels)
-#     return input_shape
-
-
 def load_data(cartoon_set_df):
     eye_color_df = cartoon_set_df.copy()
     eye_color_df.drop(eye_color_df.columns[0], axis=1, inplace=True)
@@ -108,9 +94,10 @@ def process_data(
                             img,
                         )
                 pbar.update(1)
-    # TODO: Keep the sunglasses true column and filter or not?
+    # Isolate images which have no detectable region of interest, proceed with 'valid' images
     valid = eye_color_sunglasses_df[eye_color_sunglasses_df.sunglasses != True]
     invalid = eye_color_sunglasses_df[eye_color_sunglasses_df.sunglasses == True]
+    # Determine proportion of valid images
     perc_valid = str(valid.shape[0] * 100 / eye_color_df.shape[0]) + "%"
     perc_reduction = (
         str(round(100 - valid.shape[0] * 100 / eye_color_df.shape[0], 2)) + "%"

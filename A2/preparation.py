@@ -83,8 +83,10 @@ def process_data(a2_dir, celeba_img_dir, smiling_df, usage, feature, class_mappe
                 else:
                     smiling_df_mouthless.loc[index, "mouthless"] = True
                 pbar.update(1)
+    # Isolate images which have no detectable region of interest, proceed with 'valid' images
     valid = smiling_df_mouthless[smiling_df_mouthless.mouthless != True]
     invalid = smiling_df_mouthless[smiling_df_mouthless.mouthless == True]
+    # Determine proportion of valid images
     perc_valid = str(valid.shape[0] * 100 / smiling_df.shape[0]) + "%"
     print(perc_valid + " " + "of the dataset provided have detectable mouths.")
     perc_reduction = (
