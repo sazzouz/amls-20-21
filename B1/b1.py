@@ -31,6 +31,7 @@ from common.plotting import (
 # Import local modules
 from .preparation import load_data, process_data
 
+# Label mapper to relate numerical labels to class descriptions
 class_mapper_dict = {
     "0": "shape0",
     "1": "shape1",
@@ -39,6 +40,7 @@ class_mapper_dict = {
     "4": "shape4",
 }
 
+# Task class including methods for each distinct model
 class B1:
     def prepare(self, b1_dir, celeba_img_dir, celeba_df):
         # Get train / test split for face_shape-labelled images
@@ -52,7 +54,6 @@ class B1:
             "face_shape",
             class_mapper_dict,
         )
-        # plot_valid_invalid(train_valid, train_invalid)
         print("\n>>> Generating Testing Dataset In Temporary Directory\n")
         process_data(
             b1_dir,
@@ -62,7 +63,6 @@ class B1:
             "face_shape",
             class_mapper_dict,
         )
-        # plot_valid_invalid(test_valid, test_invalid)
 
     def cnn(self, b1_dir):
         history_obj = {}

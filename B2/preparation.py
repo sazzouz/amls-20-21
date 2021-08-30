@@ -61,14 +61,18 @@ def process_data(
                 im_path = os.path.join(cartoon_set_img_dir, im["file_name"])
                 img = cv2.imread(im_path)
                 get_eyes = eye_classifier.detectMultiScale(img)
-                if list(get_eyes):
-                    # Apply crop
 
+                # Process images where eyes can be detected
+                if list(get_eyes):
+
+                    # Apply static crop
                     img = img[240:285, 180:320]
                     cv2.imwrite(
                         os.path.join(current_eye_color_output_path, im["file_name"]),
                         img,
                     )
+                
+                # If eyes cannot be detected, image must contain sunglasses
                 else:
                     eye_color_sunglasses_df.loc[index, "sunglasses"] = True
                     if not os.path.exists(current_sunglasses_output_path):
@@ -84,8 +88,8 @@ def process_data(
                                 "Created Directory %s " % current_sunglasses_output_path
                             )
                     elif os.path.isdir(current_sunglasses_output_path):
-                        # Apply crop
-
+                        
+                        # Apply static crop
                         img = img[240:285, 180:320]
                         cv2.imwrite(
                             os.path.join(

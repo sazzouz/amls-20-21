@@ -33,6 +33,7 @@ from .preparation import load_data, process_data
 
 class_mapper_dict = {"-1": "not-smiling", "1": "smiling"}
 
+# Task class including methods for each distinct model
 class A2:
     def prepare(self, a2_dir, celeba_img_dir, celeba_df):
         # Get train / test split for smiling-labelled images
@@ -46,7 +47,6 @@ class A2:
             "smiling",
             class_mapper_dict,
         )
-        # plot_valid_invalid(train_valid, train_invalid)
         print("\n>>> Generating Testing Dataset In Temporary Directory\n")
         test_valid, test_invalid = process_data(
             a2_dir,
@@ -56,7 +56,6 @@ class A2:
             "smiling",
             class_mapper_dict,
         )
-        # plot_valid_invalid(test_valid, test_invalid)
 
     def cnn(self, a2_dir):
         history_obj = {}

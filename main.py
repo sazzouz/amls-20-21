@@ -127,7 +127,7 @@ all_a1_results = [cnn_results_obj, mobilenet_results_obj, mobilenetv2_results, n
 a1.analyse(a1_dir, all_a1_histories, all_a1_results)
 print("\n>>> Cleaning Up A1 Task.\n")
 cleanup(a1_dir)
-print("Clean up memory/GPU etc...")  # TODO: Some code to free memory if necessary.
+print("Clean up memory/GPU etc...")  # Some code to free memory if necessary.
 print('\n\n\n>>> LATEST RESULTS: \n\n\n')
 print(results_table)
 
@@ -200,7 +200,7 @@ all_a2_results = [cnn_results_obj, mobilenet_results_obj, mobilenetv2_results, n
 a2.analyse(a2_dir, all_a2_histories, all_a2_results)
 print("\n>>> Cleaning Up A2 Task.\n")
 cleanup(a2_dir)
-print("Clean up memory/GPU etc...")  # TODO: Some code to free memory if necessary.
+print("Clean up memory/GPU etc...")  # Some code to free memory if necessary.
 print('\n\n\n>>> LATEST RESULTS: \n\n\n')
 print(results_table)
 
@@ -274,7 +274,7 @@ all_b1_results = [cnn_results_obj, mobilenet_results_obj, mobilenetv2_results, n
 b1.analyse(b1_dir, all_b1_histories, all_b1_results)
 print("\n>>> Cleaning Up B1 Task.\n")
 cleanup(b1_dir)
-print("Clean up memory/GPU etc...")  # TODO: Some code to free memory if necessary.
+print("Clean up memory/GPU etc...")  # Some code to free memory if necessary.
 print('\n\n\n>>> LATEST RESULTS: \n\n\n')
 print(results_table)
 
@@ -349,10 +349,10 @@ all_b2_results = [cnn_results_obj, mobilenet_results_obj, mobilenetv2_results, n
 b2.analyse(b2_dir, all_b2_histories, all_b2_results)
 print("\n>>> Cleaning Up B2 Task.\n")
 cleanup(b2_dir)
-print("Clean up memory/GPU etc...")  # TODO: Some code to free memory if necessary.
+print("Clean up memory/GPU etc...")  # Some code to free memory if necessary.
 
 
 # ======================================================================================================================
-# TODO: Print out your results with following format:
+# Print out your results with following format:
 print("\n~~~~~ Final Results ~~~~~\n")
 print(results_table)

@@ -33,6 +33,8 @@ from .preparation import load_data, process_data
 
 class_mapper_dict = {"-1": "female", "1": "male"}
 
+
+# Task class including methods for each distinct model
 class A1:
     def prepare(self, a1_dir, celeba_img_dir, celeba_df):
         # Get train / test split for gender-labelled images
@@ -46,7 +48,6 @@ class A1:
             "gender",
             class_mapper_dict,
         )
-        # plot_valid_invalid(train_valid, train_invalid)
         print("\n>>> Generating Testing Dataset In Temporary Directory\n")
         test_valid, test_invalid = process_data(
             a1_dir,
@@ -56,7 +57,6 @@ class A1:
             "gender",
             class_mapper_dict,
         )
-        # plot_valid_invalid(test_valid, test_invalid)
 
     def cnn(self, a1_dir):
         history_obj = {}

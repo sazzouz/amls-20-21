@@ -68,6 +68,7 @@ def process_data(
                 pbar.update(1)
                 dets = detector(img, 1)
 
+                # Perform dynamic crop positioning
                 if len(dets) > 0:
                     for k, d in enumerate(dets):
                         # print(
@@ -93,7 +94,7 @@ def process_data(
                         # splitext splits the extension and the filename
                         # This does not consider the condition when there are multiple faces in each image.
                         # if there are then it just overwrites each image and show only the last image.
-                        # filename = os.path.splitext(os.path.basename(f))[0]
+                        filename = os.path.splitext(os.path.basename(f))[0]
 
                         crop_image = img[
                             miny - pad : maxy + pad, minx - pad : maxx + pad
